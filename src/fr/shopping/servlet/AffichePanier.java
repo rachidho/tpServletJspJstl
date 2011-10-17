@@ -39,6 +39,7 @@ public class AffichePanier extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 
+		boolean listPanierVide = false;
 		out.println("<html>");
 		out.println("<head><title>details produit</title>"
 				+ "<link rel=stylesheet type='text/css' href='css/styles.css'>"
@@ -70,9 +71,15 @@ public class AffichePanier extends HttpServlet {
 							+ entry.getValue().getDescription() + "</td>");
 					out.println("</tr></table>");
 					out.println("</div>");
+					listPanierVide = true;
 				}
 			}
 
+		}
+		if(listPanierVide == false){
+			out.println("<div class='produit'>");
+			out.println(" Aucun produit dans le panier ");
+			out.println("</div>");
 		}
 		out.println("<body><html>");
 

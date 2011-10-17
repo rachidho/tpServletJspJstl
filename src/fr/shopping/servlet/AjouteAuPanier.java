@@ -32,13 +32,13 @@ public class AjouteAuPanier extends HttpServlet {
 		
 		String id = request.getParameter("id");
 		boolean exist = false;
-		Cookie cookie = new Cookie(id, id);
+		Cookie cookie = new Cookie("PRODUIT_"+id, id);
 		cookie.setMaxAge(3600);
 		Cookie[] cookies = request.getCookies();
 		
 		for(int i=0; i<cookies.length; i++) {
 		      Cookie cookieO = cookies[i];
-		      if (cookie.getName().equals(cookieO.getName())){
+		      if (cookie.getValue().equals(cookieO.getValue())){
 		    	  exist = true;
 		    	  break;
 		      }
