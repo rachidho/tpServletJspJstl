@@ -8,8 +8,5 @@
 </head>
 <body>
 
-<a href="/tpServletJspJstl/afficheCatalogueJSP.jsp" >Affiche Catalogue JSP </a><br />
-<a href="/tpServletJspJstl/afficheCatalogueJSTL.jsp" >Affiche Catalogue JSTL </a><br />
-
 </body>
 </html>

@@ -31,13 +31,13 @@ public class InitCatalogue extends HttpServlet {
 		produit2.setId("P2");
 		produit2.setNom("SAMSU_PS42A416");
 		produit2.setPrix(589.99f);
-		produit2.setImage("http://ak.cdiscount.com/pdt/4/1/6/1/d/SAMSU_PS42A416.jpg");
+		produit2.setImage("http://www.lcd-compare.com/images/pdts/xlm/SAMPS42A416.jpg");
 		produit2.setDescription("Téléviseur Plasma 42\" (106 cm) 16:9 - Tuner TNT intégré - Double HDMI - Entrée PC -"
 		+ "Résolution: 1024 x 768 - Luminosité: 1500 cd/m² - Taux de contraste: 100 000:1 - Angle de vision: 175°");
 		Produit produit3 = new Produit();
 		produit3.setId("P3");
 		produit3.setNom("PHILIPS 52PFL7203H");
-		produit3.setImage("http://ak.cdiscount.com/pdt/0/3/H/1/d/PHIL_52PFL7203H.jpg");
+		produit3.setImage("http://img.clubic.com/0156015601294748-c2-photo-oYToxOntzOjU6ImNvbG9yIjtzOjU6IndoaXRlIjt9-televiseur-lcd-philips-32pfl7403.jpg");
 		produit3.setPrix(1499.99f);
 		Produit produit4 = new Produit();
 		produit4.setId("P4");
@@ -59,7 +59,7 @@ public class InitCatalogue extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 	}
 
 	/**
