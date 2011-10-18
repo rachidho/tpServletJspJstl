@@ -17,6 +17,7 @@ public class Catalogue {
 	public Catalogue() {
 	}
 	
+	
 	public static Catalogue getInstance(){
 		if(catalogue == null){
 			catalogue = new Catalogue();

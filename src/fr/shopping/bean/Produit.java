@@ -2,10 +2,15 @@ package fr.shopping.bean;
 
 public class Produit {
 	
+	// id de produit
 	private String id;
+	// nom de produit
 	private String nom;
+	// prix de produit
 	private float prix;
+	// description sur le produit
 	private String description;
+	// image de produit
 	private String image;
 	
 	
@@ -13,6 +18,9 @@ public class Produit {
 	}
 
 
+	/*
+	 * les getters et les setters
+	 */
 	public String getId() {
 		return id;
 	}

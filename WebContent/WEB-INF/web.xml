@@ -63,4 +63,11 @@
     <url-pattern>/VidePanier</url-pattern>
   </servlet-mapping>
   
+  
+  <!-- Utilisation de l'anglais comme Locale par défaut -->
+	<context-param>
+		<param-name>javax.servlet.jsp.jstl.fmt.fallbackLocale</param-name>
+		<param-value>fr</param-value>
+	</context-param>
+  
 </web-app>

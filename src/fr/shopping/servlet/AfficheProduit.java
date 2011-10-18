@@ -46,9 +46,14 @@ public class AfficheProduit extends HttpServlet {
 				+ "<link rel=stylesheet type='text/css' href='css/styles.css'>"
 				+ "<head><body>");
 
+		// recuperation de id de produit
 		String id = request.getParameter("id");
+		// recuperation du catalogue
 		Catalogue catalogue = Catalogue.getInstance();
 		Produit produit = new Produit();
+
+		// parcourir la liste des produits
+		// test existance de l'ID
 		for (Map.Entry<String, Produit> entry : catalogue.getListProduit()
 				.entrySet()) {
 			if (entry.getKey().equals(id)) {
@@ -56,28 +61,32 @@ public class AfficheProduit extends HttpServlet {
 			}
 		}
 
-		out.println("<div class='produit'>");
-		out.println("<table><tr>");
-		out.println("<td rowspan='2'> ");
-		if(null != produit.getImage()){
-			out.println("<img src=" + produit.getImage() +" />");
+		// affichage details de produit selection
+		if (null != produit) {
+			out.println("<div class='produit'>");
+			out.println("<table><tr>");
+			out.println("<td rowspan='2'> ");
+			if (null != produit.getImage()) {
+				out.println("<img src=" + produit.getImage() + " />");
+			}
+			out.println("</td><td><a class='nom' href='/tpServletJspJstl/AfficheProduit?id="
+					+ produit.getId() + "'> " + produit.getNom() + "</a>");
+			out.println("</td></tr><tr>");
+			out.println("<td class='prix'>" + produit.getPrix()
+					+ " &nbsp;&euro;</td>");
+			out.println("</tr><tr>");
+			out.println("<td colspan='2' class='desc'>");
+			if (null != produit.getDescription()) {
+				out.println(produit.getDescription());
+			}
+			out.println("</td></tr></table>");
+			out.println("</div>");
+			out.println(" <form method='get' action='AjouteAuPanier'>"
+					+ "<input type='hidden' name='id' value='"
+					+ produit.getId() + "' />"
+					+ "<input type='submit' value='ajouter au panier' />"
+					+ "</form>");
 		}
-		out.println("</td><td><a class='nom' href='/tpServletJspJstl/AfficheProduit?id="
-				+ produit.getId() + "'> " + produit.getNom() + "</a>");
-		out.println("</td></tr><tr>");
-		out.println("<td class='prix'>" + produit.getPrix()
-				+ " &nbsp;&euro;</td>");
-		out.println("</tr><tr>");
-		out.println("<td colspan='2' class='desc'>");
-		if( null != produit.getDescription()){
-			out.println(produit.getDescription());
-		}
-		out.println("</td></tr></table>");
-		out.println("</div>");
-		out.println(" <form method='get' action='AjouteAuPanier'>" +
-						"<input type='hidden' name='id' value='"+ produit.getId()+ "' />"+
-						"<input type='submit' value='ajouter au panier' />"+
-						"</form>");
 		out.println("<body><html>");
 
 	}

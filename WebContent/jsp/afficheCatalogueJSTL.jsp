@@ -18,7 +18,7 @@
 	<c:if test="${empty catalogue.listProduit}">
 		<div class='produit'>Aucun produit dans le panier</div>
 	</c:if>
-
+	
 	<c:forEach var="produit" items="${catalogue.listProduit}">
 
 		<div class="produit">

@@ -39,23 +39,18 @@ public class AffichePanier extends HttpServlet {
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		
-		/*
-		 * recuperetion du catalogue
-		 */
-		Catalogue catalogue = Catalogue.getInstance();
-		/*
-		 * recuperation de la liste des cookies
-		 */
-		Cookie[] cookies = request.getCookies();
-		/*
-		 * creation du catalogue qui va contenir les produit de panier
-		 */
-		Catalogue cataloguePanier = new Catalogue();
-		/*
-		 * creation de la liste des produit dans le panier
-		 */
-		HashMap<String, Produit> listProduit = new HashMap<String, Produit>();
 		
+		// recuperetion du catalogue
+		Catalogue catalogue = Catalogue.getInstance();
+		
+		// recuperation de la liste des cookies
+		Cookie[] cookies = request.getCookies();
+		
+		// creation du catalogue qui va contenir les produit de panier
+		Catalogue cataloguePanier = new Catalogue();
+		
+		// creation de la liste des produit dans le panier
+		HashMap<String, Produit> listProduit = new HashMap<String, Produit>();
 		
 		for (int i = 0; i < cookies.length; i++) {
 			Cookie cookieO = cookies[i];
@@ -63,15 +58,13 @@ public class AffichePanier extends HttpServlet {
 				if ("PRODUIT_".equals(cookieO.getName().substring(0, 8))) {
 					listProduit.put(cookieO.getName(), catalogue.getListProduit().get(cookieO.getValue()));
 				}
-
 		}
 		cataloguePanier.setName(catalogue.getName());
 		cataloguePanier.setListProduit(listProduit);
-		/*
-		 * transmission de catalogue vers la JSTL
-		 */
-		request.setAttribute("catalogue", cataloguePanier);
 		
+		// transmission de catalogue vers la JSTL
+		request.setAttribute("catalogue", cataloguePanier);
+		// redirection vers la page afficheCatalogueJSTL
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/afficheCatalogueJSTL.jsp");
 		dispatcher.forward(request, response);
 

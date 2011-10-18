@@ -27,6 +27,7 @@ public class AfficheCatalogueJSP extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// rederection vers la page afficheCatalogue.jsp
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/afficheCatalogueJSP.jsp");
 		dispatcher.forward(request, response);
 		

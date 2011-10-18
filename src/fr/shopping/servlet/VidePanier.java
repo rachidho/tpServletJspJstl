@@ -46,15 +46,20 @@ public class VidePanier extends HttpServlet {
 		
 		for (int i = 0; i < cookies.length; i++) {
 			Cookie cookieO = cookies[i];
+			
+			// parcourir la liste des produit dans le catalogue
 			for (Map.Entry<String, Produit> entry : catalogue.getListProduit()
 					.entrySet()) {
+				
+				// si la valeur de cookie existe dans la list des produit en le supprime
+				// de la liste des cookies
 				if (cookieO.getValue().equals(entry.getKey())) {
+					
 					// suprission de cookie
 					cookieO.setMaxAge(0);
 					response.addCookie(cookieO);
 				}
 			}
-
 		}
 		// redirection vers /AffichePanier
 		response.sendRedirect(request.getContextPath() + "/AffichePanier");

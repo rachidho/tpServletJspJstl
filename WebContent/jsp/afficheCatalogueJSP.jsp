@@ -10,14 +10,23 @@
 </head>
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
-	<div class="titre">Catalogue</div>
-	<br>
-	<br>
+	
 	<%
+		// recuperation de la liste des produit
 		Catalogue catalogue = Catalogue.getInstance();
+	%>
+	
+	<%-- affichage du nom catalogue --%>
+	<div class="titre"><%=catalogue.getName() %></div>
+	<br>
+	<br>
+	
+	<%
+		// parcourire la liste des produits + affichage de contenu
 		for (Map.Entry<String, Produit> entry : catalogue.getListProduit()
 				.entrySet()) {
 	%>
+	<%-- affichage détails des produits --%>
 	<div class="produit">
 		<table>
 			<tr>
