@@ -5,7 +5,13 @@ import java.util.HashMap;
 public class Catalogue {
 
 	private static Catalogue catalogue;
+	/*
+	 * nom de catalogue
+	 */
 	private String name;
+	/*
+	 * list des produit d'un catalogue
+	 */
 	private HashMap<String ,Produit> listProduit;
 	
 	public Catalogue() {
@@ -18,7 +24,9 @@ public class Catalogue {
 		return catalogue;
 	}
 
-
+	/*
+	 * les getters et les setters
+	 */
 	public String getName() {
 		return name;
 	}

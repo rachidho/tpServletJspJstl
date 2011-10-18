@@ -18,14 +18,17 @@
 	<c:if test="${empty catalogue.listProduit}">
 		<div class='produit'>Aucun produit dans le panier</div>
 	</c:if>
+
 	<c:forEach var="produit" items="${catalogue.listProduit}">
 
 		<div class="produit">
 			<table>
 				<tr>
-					<td rowspan="2"><c:if test="${!empty produit.value.image}">
+					<td rowspan="2">
+						<c:if test="${!empty produit.value.image}">
 							<img src='<c:out value="${produit.value.image}"></c:out>' />
-						</c:if></td>
+						</c:if>
+					</td>
 					<td><a class="nom"
 						href="/tpServletJspJstl/AfficheProduit?id=<c:out value="${produit.value.id}"></c:out>">
 							<c:out value="${produit.value.nom}"></c:out> </a></td>
@@ -34,8 +37,8 @@
 					<td class="prix">${produit.value.prix} &nbsp;&euro;</td>
 				</tr>
 				<tr>
-					<td colspan="2" class="desc"><c:if
-							test="${!empty produit.value.description}">
+					<td colspan="2" class="desc">
+						<c:if test="${!empty produit.value.description}">
 							<c:out value="${produit.value.description}"></c:out>
 						</c:if>
 					</td>

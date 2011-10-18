@@ -28,11 +28,20 @@ public class AjouteAuPanier extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+    /*
+     * ajoute d'un produit dans le panier avec un test d'existance de ce dernier
+     */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String id = request.getParameter("id");
 		boolean exist = false;
+		/*
+		 * creation de cookie
+		 */
 		Cookie cookie = new Cookie("PRODUIT_"+id, id);
+		/*
+		 * la duree de vie d'un cookie
+		 */
 		cookie.setMaxAge(3600);
 		Cookie[] cookies = request.getCookies();
 		
@@ -43,7 +52,9 @@ public class AjouteAuPanier extends HttpServlet {
 		    	  break;
 		      }
 		    }
-		
+		/*
+		 * l'ajoute de cookie " cas non existe "
+		 */
 		if(exist == false){
 			response.addCookie(cookie);
 		}

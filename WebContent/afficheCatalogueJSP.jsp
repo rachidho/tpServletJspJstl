@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%@include file="header.jsp" %>
+	<jsp:include page="header.jsp"></jsp:include>
 	<div class="titre">Catalogue</div>
 	<br>
 	<br>
@@ -21,16 +21,32 @@
 	<div class="produit">
 		<table>
 			<tr>
-				<td rowspan="2"> <% if(null != entry.getValue().getImage()){ %><img src="<%= entry.getValue().getImage() %>" /><%} %></td>
+				<td rowspan="2">
+					<%
+						if (null != entry.getValue().getImage()) {
+					%> 
+					<img src="<%=entry.getValue().getImage()%>" /> 
+					<%
+ 					}
+					%>
+				</td>
 				<td><a class="nom"
-					href="/tpServletJspJstl/AfficheProduit?id=<%=entry.getKey()%>"> <%=entry.getValue().getNom()%>
-				</a></td>
+					href="/tpServletJspJstl/AfficheProduit?id=<%=entry.getKey()%>">
+						<%=entry.getValue().getNom()%> </a></td>
 			</tr>
 			<tr>
-				<td class="prix"><%=entry.getValue().getPrix() %> &nbsp;&euro;</td>
+				<td class="prix"><%=entry.getValue().getPrix()%> &nbsp;&euro;</td>
 			</tr>
 			<tr>
-				<td colspan="2" class="desc"><% if(null != entry.getValue().getDescription()){ %><%=entry.getValue().getDescription() %><%} %></td>
+				<td colspan="2" class="desc">
+					<%
+						if (null != entry.getValue().getDescription()) {
+					%>
+					<%=entry.getValue().getDescription()%> 
+					<%
+ 					}
+ 					%>
+				</td>
 			</tr>
 		</table>
 	</div>

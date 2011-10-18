@@ -9,8 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import fr.shopping.bean.Catalogue;
-
 /**
  * Servlet implementation class AfficheCatalogueJSP
  */

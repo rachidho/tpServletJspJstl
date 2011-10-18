@@ -18,6 +18,9 @@ public class InitCatalogue extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
+	/*
+	 * initialisation de catalogue au démarrage du serveur.
+	 */
 	public InitCatalogue() {
 		Produit produit1 = new Produit();
 		produit1.setId("P1");

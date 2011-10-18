@@ -2,12 +2,7 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
   <display-name>tpServletJspJstl</display-name>
   <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
     <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
     <servlet-name>initCatalogue</servlet-name>
@@ -21,7 +16,6 @@
   <servlet>
     <servlet-name>afficheCatalogueJSP</servlet-name>
     <servlet-class>fr.shopping.servlet.AfficheCatalogueJSP</servlet-class>
-    <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
     <servlet-name>afficheCatalogueJSP</servlet-name>
@@ -30,7 +24,6 @@
   <servlet>
     <servlet-name>afficheCatalogueJSTL</servlet-name>
     <servlet-class>fr.shopping.servlet.AfficheCatalogueJSTL</servlet-class>
-    <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
     <servlet-name>afficheCatalogueJSTL</servlet-name>
@@ -39,7 +32,6 @@
   <servlet>
     <servlet-name>afficheProduit</servlet-name>
     <servlet-class>fr.shopping.servlet.AfficheProduit</servlet-class>
-    <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
     <servlet-name>afficheProduit</servlet-name>
@@ -48,7 +40,6 @@
   <servlet>
     <servlet-name>ajouteAuPanier</servlet-name>
     <servlet-class>fr.shopping.servlet.AjouteAuPanier</servlet-class>
-    <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
     <servlet-name>ajouteAuPanier</servlet-name>
@@ -57,7 +48,6 @@
   <servlet>
     <servlet-name>affichePanier</servlet-name>
     <servlet-class>fr.shopping.servlet.AffichePanier</servlet-class>
-    <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
     <servlet-name>affichePanier</servlet-name>
@@ -67,7 +57,6 @@
   <servlet>
     <servlet-name>videPanier</servlet-name>
     <servlet-class>fr.shopping.servlet.VidePanier</servlet-class>
-    <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
     <servlet-name>videPanier</servlet-name>
