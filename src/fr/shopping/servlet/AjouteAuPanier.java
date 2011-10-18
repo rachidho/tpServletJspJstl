@@ -59,7 +59,7 @@ public class AjouteAuPanier extends HttpServlet {
 			response.addCookie(cookie);
 		}
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/afficheCatalogueJSP.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/afficheCatalogueJSP.jsp");
 		dispatcher.forward(request, response);
 		
 	}

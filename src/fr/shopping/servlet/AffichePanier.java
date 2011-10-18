@@ -72,7 +72,7 @@ public class AffichePanier extends HttpServlet {
 		 */
 		request.setAttribute("catalogue", cataloguePanier);
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/afficheCatalogueJSTL.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/afficheCatalogueJSTL.jsp");
 		dispatcher.forward(request, response);
 
 	}
