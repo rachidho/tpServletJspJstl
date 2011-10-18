@@ -1,8 +1,6 @@
 package fr.shopping.servlet;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -42,7 +40,7 @@ public class VidePanier extends HttpServlet {
 			Cookie cookieO = cookies[i];
 			for (Map.Entry<String, Produit> entry : catalogue.getListProduit()
 					.entrySet()) {
-				if (cookieO.getValue().equals(entry.getKey()+"/")) {
+				if (cookieO.getValue().equals(entry.getKey())) {
 					cookieO.setMaxAge(0);
 					response.addCookie(cookieO);
 				}
@@ -56,7 +54,7 @@ public class VidePanier extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		this.doGet(request, response);
 	}
 
 }

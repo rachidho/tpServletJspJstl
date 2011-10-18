@@ -55,33 +55,28 @@ public class AfficheProduit extends HttpServlet {
 
 		out.println("<div class='produit'>");
 		out.println("<table><tr>");
-		out.println("<td rowspan='2'> <img src=" + produit.getImage()
-				+ " /></td>");
-		out.println("<td><a class='nom' href='/tpServletJspJstl/AfficheProduit?id="
+		out.println("<td rowspan='2'> ");
+		if(null != produit.getImage()){
+			out.println("<img src=" + produit.getImage() +" />");
+		}
+		out.println("</td><td><a class='nom' href='/tpServletJspJstl/AfficheProduit?id="
 				+ produit.getId() + "'> " + produit.getNom() + "</a>");
 		out.println("</td></tr><tr>");
 		out.println("<td class='prix'>" + produit.getPrix()
 				+ " &nbsp;&euro;</td>");
 		out.println("</tr><tr>");
-		out.println("<td colspan='2' class='desc'>" + produit.getDescription()
-				+ "</td>");
-		out.println("</tr></table>");
+		out.println("<td colspan='2' class='desc'>");
+		if( null != produit.getDescription()){
+			out.println(produit.getDescription());
+		}
+		out.println("</td></tr></table>");
 		out.println("</div>");
 		out.println(" <form method='get' action='AjouteAuPanier'>" +
-						"<input type='hidden' name='id' value="+ produit.getId()+"/>"+
+						"<input type='hidden' name='id' value='"+ produit.getId()+ "' />"+
 						"<input type='submit' value='ajouter au panier' />"+
 						"</form>");
 		out.println("<body><html>");
 
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 	}
 
 }

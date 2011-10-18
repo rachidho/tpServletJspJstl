@@ -1,9 +1,9 @@
 package fr.shopping.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Map;
+import java.util.HashMap;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -36,62 +36,27 @@ public class AffichePanier extends HttpServlet {
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 
-		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
-
-		boolean listPanierVide = false;
-		out.println("<html>");
-		out.println("<head><title>details produit</title>"
-				+ "<link rel=stylesheet type='text/css' href='css/styles.css'>"
-				+ "<head><body>" + "<a href='/tpServletJspJstl/index.jsp'>Accueil</a>&nbsp;"+
-				"<a href='/tpServletJspJstl/afficheCatalogueJSP.jsp'>Catalogue</a>&nbsp;"+
-				"<a href='/tpServletJspJstl/AffichePanier'>Voir le panier</a>&nbsp;"+
-				"<a href='/tpServletJspJstl/VidePanier'>Vidé le panier</a>" +
-						"<div class='titre'>Panier</div><br><br>");
-
 		Catalogue catalogue = Catalogue.getInstance();
 		Cookie[] cookies = request.getCookies();
+		Catalogue cataloguePanier = new Catalogue();
+		HashMap<String, Produit> listProduit = new HashMap<String, Produit>();
+		
+		
 		for (int i = 0; i < cookies.length; i++) {
 			Cookie cookieO = cookies[i];
-			for (Map.Entry<String, Produit> entry : catalogue.getListProduit()
-					.entrySet()) {
-				if (cookieO.getValue().equals(entry.getKey()+"/")) {
-					out.println("<div class='produit'>");
-					out.println("<table><tr>");
-					out.println("<td rowspan='2'> <img src="
-							+ entry.getValue().getImage() + " /></td>");
-					out.println("<td><a class='nom' href='/AfficheProduit?id="
-							+ entry.getValue().getId() + "'> "
-							+ entry.getValue().getNom() + "</a>");
-					out.println("</td></tr><tr>");
-					out.println("<td class='prix'>"
-							+ entry.getValue().getPrix() + " &nbsp;&euro;</td>");
-					out.println("</tr><tr>");
-					out.println("<td colspan='2' class='desc'>"
-							+ entry.getValue().getDescription() + "</td>");
-					out.println("</tr></table>");
-					out.println("</div>");
-					listPanierVide = true;
+
+				if ("PRODUIT_".equals(cookieO.getName().substring(0, 8))) {
+					listProduit.put(cookieO.getName(), catalogue.getListProduit().get(cookieO.getValue()));
 				}
-			}
 
 		}
-		if(listPanierVide == false){
-			out.println("<div class='produit'>");
-			out.println(" Aucun produit dans le panier ");
-			out.println("</div>");
-		}
-		out.println("<body><html>");
+		cataloguePanier.setName(catalogue.getName());
+		cataloguePanier.setListProduit(listProduit);
+		request.setAttribute("catalogue", cataloguePanier);
 
-	}
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/afficheCatalogueJSTL.jsp");
+		dispatcher.forward(request, response);
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 	}
 
 }
